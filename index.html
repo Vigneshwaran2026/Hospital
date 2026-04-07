@@ -2012,9 +2012,41 @@ great expertise and care. I am truly grateful for their support and treatment.</
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
     </a>    
 
-    <div class="preloader">
-        <div class="preloader__image" style="background-image: url(assets/images/loader.webp);"></div>
+    <!-- Preloader Start -->
+ <div id="preloader">
+        <div class="loader-container">
+            
+            <!-- Floating Particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+
+            <!-- Logo with Ripple Effect -->
+        <div class="loader-logo">
+    <div class="heart-icon">
+        <i class="fas fa-heartbeat"></i>
     </div>
+</div>
+            <!-- Modern Heartbeat SVG Loader -->
+            <div class="heartbeat-wrapper">
+                <div class="heartbeat">
+                    <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                        <path class="heartbeat-path" d="M0,30 L40,30 L50,10 L70,50 L80,20 L90,40 L100,30 L140,30 L150,5 L170,55 L180,25 L190,35 L200,30" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Animated Loading Bar -->
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+
+            <!-- Modern Text with Animated Dots -->
+            <p class="loading-text">Loading Healthcare Services<span class="loading-dots"></span></p>
+
+        </div>
+    </div>
+<!-- Preloader End -->
     <!-- /.preloader -->
    <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
     <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -2126,6 +2158,36 @@ window.addEventListener("pageshow", function(event) {
     }
 });
 </script>
+
+  <script>
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById("preloader");
+            
+            // Smooth exit animation
+            setTimeout(() => {
+                preloader.classList.add("hidden");
+                
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 600);
+            }, 2000); // 2 seconds for better UX
+        });
+
+        // Optional: Add random loading messages
+        const messages = [
+            "Loading Healthcare Services"
+        ];
+        
+        let messageIndex = 0;
+        const textElement = document.querySelector('.loading-text');
+        
+        setInterval(() => {
+            messageIndex = (messageIndex + 1) % messages.length;
+            // Keep the dots span
+            textElement.innerHTML = messages[messageIndex] + '<span class="loading-dots"></span>';
+        }, 2000);
+    </script>
 
 
 </body>
