@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 Error || Stackly || Medical</title>
+   <!-- fonts -->
+    <link rel="preconnect" href="../fonts.googleapis.com/index.html">
+    <link rel="preconnect" href="../fonts.gstatic.com/index.html" crossorigin>
+    <link href="../fonts.googleapis.com/css2da65.css?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/vendors/bootstrap-select/bootstrap-select.min.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <style>
+        /* FULL SCREEN 404 FIX */
+.error-404 {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* remove extra spacing */
+}
+
+/* Remove scroll completely */
+html, body {
+  height: auto;
+  overflow: auto;
+}
+
+.error-404 .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.error-404__content {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .error-404 {
+    text-align: center;
+  }
+}
+
+.row.gutter-y-40 {
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+
+  /* ALLOW SCROLL */
+  .error-404 {
+    height: auto;
+    padding: 40px 15px;
+    text-align: center;
+  }
+
+  /* STACK CONTENT */
+  .error-404 .row {
+    flex-direction: column;
+  }
+
+  /* IMAGE FIX */
+  .error-404__image img {
+    max-width: 250px;
+    margin: 0 auto 20px;
+  }
+
+  /* TEXT CENTER */
+  .error-404__content {
+    text-align: center;
+  }
+
+  /* TITLE SIZE */
+  .error-404__title {
+    font-size: 60px;
+  }
+
+  .error-404__tagline {
+    font-size: 22px;
+  }
+
+  .error-404__text {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+
+  /* BUTTON */
+  .error-404 .stackly-btn {
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+}
+
+
+    </style>
+
+    
+    </head>
+
+
+<body>
+    
+        
+    
+        <section class="error-404">
+            <div class="container">
+                <div class="row gutter-y-40 align-items-center">
+                    <div class="col-xl-7 col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                        <div class="error-404__image">
+                            <div class="error-404__image__box">
+                                <img src="../assets/images/shapes/error-404-shape-1-1.webp" alt="shape" class="error-404__image__shape-1">
+                                <img src="../assets/images/shapes/error-404-shape-1-2.webp" alt="shape" class="error-404__image__shape-2">
+                            </div><!-- /.error-404__image__box -->
+                        </div><!-- /.error-404__image -->
+                    </div><!-- /.col-xl-7 col-lg-6 -->
+                    <div class="col-xl-5 col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <div class="error-404__content">
+                            <h4 class="error-404__title">404</h4><!-- /.error-404__title -->
+                            <h4 class="error-404__tagline">Page Not Found</h4><!-- /.error-404__tagline -->
+                            <p class="error-404__text">Sorry, the page you are looking for might have been removed, had its name changed, 
+    or is temporarily unavailable. Please check the URL or return to the homepage.</p><!-- /.error-404__text -->
+                            <a href="patient-dashboard.html" class="stackly-btn stackly-btn--normal"><span>back to Dashboard</span></a><!-- /.stackly-btn -->
+                        </div><!-- /.error-404__content -->
+                    </div><!-- /.col-xl-5 col-lg-6 -->
+                </div><!-- /.row gutter-y-40 -->
+            </div><!-- /.container -->
+        </section><!-- /.error-404 section-space -->  
+</body>
+</html>

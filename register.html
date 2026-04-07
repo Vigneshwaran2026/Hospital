@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In || stackly || Medical</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="../fonts.googleapis.com/index.html">
+    <link rel="preconnect" href="../fonts.gstatic.com/index.html" crossorigin>
+    <link href="../fonts.googleapis.com/css2da65.css?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/bootstrap-select/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/vendors/stackly-icons/style.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/vendors/slick/css/slick.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+/* REMOVE SCROLL */
+html, body {
+  height: 100%;
+  overflow-x: hidden !important;
+}
+
+/* BACK BUTTON STYLE */
+.login-back-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.login-page .container {
+  height: 100%;
+  display: flex;
+  align-items: center; /* center properly */
+  padding-top: 0; /* remove extra space */
+}
+/* CENTER CONTENT */
+.login-page .row {
+  width: 100%;
+  align-items: center;
+}
+
+.login-page__image,
+.login-page__form {
+  width: 100%;
+}
+
+/* MOBILE CENTER */
+@media (max-width: 768px) {
+  .login-page {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  html, body {
+    overflow: auto;
+  }
+}
+
+
+
+/* LIMIT FORM HEIGHT */
+.login-page__form__inner {
+  max-width: 420px;
+  margin: auto;
+}
+
+.login-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.login-page .row {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.row.gutter-y-60 {
+  --bs-gutter-y: 20px; /* reduce spacing */
+}
+
+/* MOVE RIGHT FORM UP */
+.login-page__form {
+  margin-top: -20px; /* adjust (-10px to -40px as needed) */
+}
+
+
+.login-page .row {
+  align-items: flex-start; /* instead of center */
+  padding-top: 20px;
+}
+
+/* STYLE ROLE DROPDOWN SAME AS INPUT */
+.login-page__form__input-box select {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  outline: none;
+}
+
+/* COMMON INPUT STYLE */
+.login-page__form__input-box input,
+.login-page__form__input-box select {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  outline: none;
+}
+
+.login-page__form__checked-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* prevents line break */
+  font-size: 14px;
+}
+
+/* PERFECT ALIGNMENT */
+.login-page__form__checked-box {
+  display: flex;
+  align-items: center; /* vertical center */
+  gap: 10px;
+  white-space: nowrap;
+  line-height: 1; /* remove extra space */
+}
+
+/* FIX CHECKBOX ICON POSITION */
+.login-page__form__checked-box span {
+  position: relative;
+}
+
+.login-page__form__checked-box span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.login-page .row {
+  max-width: 1100px; /* increase overall width */
+}
+
+.login-page__image {
+  display: flex;
+  justify-content: center;
+}
+
+/* BIGGER IMAGE */
+.login-page__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page__image__inner {
+  width: 100%;
+  max-width: 550px; /* increase */
+}
+
+
+/* RESET OLD STYLES */
+.login-page__form__checked-box span {
+  all: unset;
+}
+
+/* FLEX ALIGN */
+.login-page__form__checked-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* HIDE DEFAULT */
+.login-page__form__checked-box input {
+  display: none;
+}
+
+/* CUSTOM BOX */
+.login-page__form__checked-box .checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #00b4d8;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+/* CHECKED STATE */
+.login-page__form__checked-box input:checked + .checkmark {
+  background: #00b4d8;
+}
+
+/* TICK ICON */
+.login-page__form__checked-box input:checked + .checkmark::after {
+  content: "✓";
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  left: 3px;
+  top: -1px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+    </style>
+
+    
+    </head>
+
+
+<body class="custom-cursor">
+    
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+       <section class="login-page" id="registerForm">
+         <div class="login-back-home">
+    <a href="index.html" class="stackly-btn stackly-btn--normal">
+        ← Back to Home
+    </a>
+</div>
+    <div class="container">
+        <div class="row gutter-y-60 align-items-center">
+
+            <!-- LEFT IMAGE -->
+            <div class="col-lg-6">
+                <div class="login-page__image">
+                    <div class="login-page__image__inner">
+                        <img src="assets/images/login.webp" alt="register">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT FORM -->
+            <div class="col-lg-6">
+                <form class="login-page__form">
+                    <div class="login-page__form__inner">
+
+                        <!-- TOP -->
+                        <div class="login-page__form__top">
+                            <img src="assets/images/logo.webp" alt="logo" width="164">
+                            <h3 class="login-page__form__title">Create Your Account</h3>
+                        </div>
+
+                        <div class="login-page__form__wrapp">
+
+                            <!-- FULL NAME -->
+                            <div class="login-page__form__input-box">
+                                <label class="login-page__form__label">Full Name</label>
+                                <input type="text" placeholder="Enter your full name" required>
+                            </div>
+
+                            <!-- EMAIL -->
+                          <div class="login-page__form__input-box">
+    <label class="login-page__form__label">Email</label>
+    <input type="email" id="email" class="login-page__form__input" placeholder="Enter your email" required>
+<small class="error-msg" id="emailError"></small>
+
+                            <!-- PHONE -->
+                            <div class="login-page__form__input-box">
+                                <label class="login-page__form__label">Phone Number</label>
+                                <input type="text" placeholder="Enter your phone number" required>
+                            </div>
+
+                            <!-- ROLE -->
+                            <div class="login-page__form__input-box">
+                                <label class="login-page__form__label">Role</label>
+                                <select required>
+                                    <option value="">Select Role</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="doctor">Doctor</option>
+                                    <option value="patient">Patient</option>
+                                </select>
+                            </div>
+
+                            <!-- PASSWORD -->
+                            <div class="login-page__form__input-box">
+                                <label class="login-page__form__label">Password</label>
+                                <input type="password" id="password" placeholder="Enter password" required>
+<small class="error-msg" id="passwordError"></small>
+                            </div>
+
+                            <!-- CONFIRM PASSWORD -->
+                            <div class="login-page__form__input-box">
+                                <label class="login-page__form__label">Confirm Password</label>
+                                <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+<small class="error-msg" id="confirmError"></small>
+                            </div>
+
+                            <!-- TERMS -->
+                          <div class="login-page__form__input-box login-page__form__input-box--3">
+    <label class="login-page__form__checked-box">
+        <input type="checkbox" id="terms">
+<span class="checkmark"></span>
+I agree to Terms & Conditions
+<small class="error-msg" id="termsError"></small>
+    </label>
+</div>
+
+                            <!-- BUTTON -->
+                            <div class="login-page__form__input-box login-page__form__input-box--4">
+                                <button type="submit" class="login-page__form__btn stackly-btn">
+                                    Register
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- BOTTOM -->
+                        <div class="login-page__form__bottom">
+                            <p class="login-page__form__register-text">
+                                Already have an account? 
+                                <a href="login.html">Login now</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendors/tiny-slider/tiny-slider.js"></script>
+    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="assets/vendors/slick/js/slick.min.js"></script>
+    <script src="assets/vendors/wow/wow.js"></script>
+    <script src="assets/vendors/imagesloaded/imagesloaded.min.js"></script>
+    <script src="assets/vendors/isotope/isotope.js"></script>
+    <script src="assets/vendors/countdown/countdown.min.js"></script>
+    <script src="assets/vendors/jquery-circleType/jquery.circleType.js"></script>
+    <script src="assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+    <!-- template js -->
+    <script src="assets/js/stackly.js"></script>
+
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let confirmPassword = document.getElementById("confirmPassword").value.trim();
+    let terms = document.getElementById("terms").checked;
+
+    let emailError = document.getElementById("emailError");
+    let passwordError = document.getElementById("passwordError");
+    let confirmError = document.getElementById("confirmError");
+    let termsError = document.getElementById("termsError");
+
+    let isValid = true;
+
+    // RESET
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmError.textContent = "";
+    termsError.textContent = "";
+
+    // EMAIL
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        emailError.textContent = "Enter valid email";
+        isValid = false;
+    }
+
+    // PASSWORD
+    let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    if (!password.match(passwordPattern)) {
+        passwordError.textContent = "Strong password required";
+        isValid = false;
+    }
+
+    // CONFIRM PASSWORD
+    if (password !== confirmPassword) {
+        confirmError.textContent = "Passwords do not match";
+        isValid = false;
+    }
+
+    // CHECKBOX VALIDATION
+    if (!terms) {
+        termsError.textContent = "You must accept terms";
+        isValid = false;
+    }
+
+    // SUCCESS → DIRECT REDIRECT (NO POPUP)
+    if (isValid) {
+        window.location.href = "login.html";
+    }
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In || stackly || Medical</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="../fonts.googleapis.com/index.html">
+    <link rel="preconnect" href="../fonts.gstatic.com/index.html" crossorigin>
+    <link href="../fonts.googleapis.com/css2da65.css?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendors/bootstrap-select/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/vendors/stackly-icons/style.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/vendors/slick/css/slick.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+
+html, body {
+  height: 100%;
+  overflow-x: hidden !important;
+}
+/* BACK BUTTON STYLE */
+.login-back-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.login-page .container {
+  height: 100%;
+  display: flex;
+  align-items: center; /* center properly */
+  padding-top: 0; /* remove extra space */
+}
+/* CENTER CONTENT */
+.login-page .row {
+  width: 100%;
+  align-items: center;
+}
+
+.login-page__image,
+.login-page__form {
+  width: 100%;
+}
+
+/* MOBILE CENTER */
+@media (max-width: 768px) {
+  .login-page {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  html, body {
+    overflow: auto;
+  }
+}
+
+/* LIMIT IMAGE HEIGHT */
+.login-page__image__inner img {
+  max-height: 500px; /* adjust */
+  object-fit: cover;
+  width: 100%;
+}
+
+/* LIMIT FORM HEIGHT */
+.login-page__form__inner {
+  max-width: 420px;
+  margin: auto;
+}
+
+.login-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.login-page__image__inner img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.login-page .row {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.row.gutter-y-60 {
+  --bs-gutter-y: 20px; /* reduce spacing */
+}
+
+/* MOVE RIGHT FORM UP */
+.login-page__form {
+  margin-top: -20px; /* adjust (-10px to -40px as needed) */
+}
+
+
+.login-page .row {
+  align-items: flex-start; /* instead of center */
+  padding-top: 20px;
+}
+
+/* STYLE ROLE DROPDOWN SAME AS INPUT */
+.login-page__form__input-box select {
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  padding: 0 15px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  outline: none;
+}
+
+/* BACKDROP */
+.modern-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* POPUP BOX */
+.modern-popup__content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: popupFade 0.3s ease;
+}
+
+/* TITLE */
+.modern-popup__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* SUBTITLE */
+.modern-popup__subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+.modern-popup__content input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* BUTTONS */
+.modern-popup__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  flex: 1;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #33C1ED, #00AEEF);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* OUTLINE BUTTON */
+.btn-outline {
+  flex: 1;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline:hover {
+  background: #f5f5f5;
+}
+
+/* ANIMATION */
+@keyframes popupFade {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+    </style>
+
+    
+    </head>
+
+
+<body class="custom-cursor">
+    
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+        <section class="login-page">
+            <div class="login-back-home">
+    <a href="index.html" class="stackly-btn stackly-btn--normal">
+        ← Back to Home
+    </a>
+</div>
+            <div class="container">
+                <div class="row gutter-y-60 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                        <div class="login-page__image">
+                            <div class="login-page__image__inner">
+                                <img src="assets/images/resources/login-1-1.webp" alt="login">
+                            </div><!-- /.login-page__image__inner -->
+                        </div><!-- /.login-page__image -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
+                        <form class="login-page__form" id="loginForm">
+                            <div class="login-page__form__inner">
+                                <div class="login-page__form__top">
+                                    <img src="assets/images/logo.webp" alt="logo" width="164" class="login-page__form__logo">
+                                    <h3 class="login-page__form__title">Nice to see you again</h3>
+                                </div><!-- /.login-page__form__top -->
+                                <div class="login-page__form__wrapp">
+                                    <div class="login-page__form__input-box">
+                                        <label for="login_email_or_phone" class="login-page__form__label">Login</label>
+                                       <input type="text" id="loginEmail" placeholder="Email Address">
+<small class="error-msg" id="loginEmailError"></small>
+                                    </div>
+                                    <div class="login-page__form__input-box">
+                                        <label for="login_password" class="login-page__form__label">Password</label>
+                                        <div class="login-page__form__input-box__inner">
+                                            <input type="password" id="loginPassword" placeholder="Enter password">
+<small class="error-msg" id="loginPasswordError"></small>
+                                            <i class="toggle-password-icon fa fa-fw fa-eye-slash"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="login-page__form__input-box">
+    <label for="login_role" class="login-page__form__label">Role</label>
+    <select id="loginRole">
+    <option value="">Select Role</option>
+    <option value="admin">Admin</option>
+    <option value="doctor">Doctor</option>
+    <option value="patient">Patient</option>
+</select>
+<small class="error-msg" id="roleError"></small>
+</div>
+
+                                    <div class="login-page__form__input-box login-page__form__input-box--3">
+                                        <label class="login-page__form__checked-box" for="remember-policy">
+                                            <input type="checkbox" name="remember-policy" id="remember-policy">
+                                            <span></span>
+                                            Remember me
+                                        </label>
+                                        <a href="#" onclick="openPopup()" class="login-page__form__forgot">Forgot password?</a>
+                                    </div>
+                                    <div class="login-page__form__input-box login-page__form__input-box--4">
+                                        <button type="submit" class="login-page__form__btn stackly-btn">Log In</button>
+                                    </div>
+                                </div><!-- /.login-page__form__wrapp -->
+                                <div class="login-page__form__bottom">
+                                    <p class="login-page__form__register-text">Don’t have an account? <a href="register.html">Sign up now</a></p>
+                                </div><!-- /.login-page__form__bottom -->
+                            </div><!-- /.login-page__form__inner -->
+                        </form><!-- /.login-page__form -->
+
+                        <div id="forgotPopup" class="modern-popup">
+  <div class="modern-popup__content">
+
+    <h3 class="modern-popup__title">Forgot Password</h3>
+
+    <p class="modern-popup__subtitle">
+      Enter your email to receive a reset link
+    </p>
+
+    <input type="email" id="forgotEmail" placeholder="Enter your email">
+
+    <small class="error-msg" id="forgotError"></small>
+
+    <div class="modern-popup__actions">
+      <button onclick="sendResetLink()" class="btn-primary">
+        Send Reset Link
+      </button>
+      <button onclick="closePopup()" class="btn-outline">
+        Close
+      </button>
+    </div>
+
+  </div>
+</div>
+
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row gutter-y-60 -->
+            </div><!-- /.container -->
+        </section><!-- /.login-page section-space -->
+
+
+   <script src="assets/vendors/jquery/jquery-3.7.0.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="assets/vendors/tiny-slider/tiny-slider.js"></script>
+    <script src="assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="assets/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="assets/vendors/slick/js/slick.min.js"></script>
+    <script src="assets/vendors/wow/wow.js"></script>
+    <script src="assets/vendors/imagesloaded/imagesloaded.min.js"></script>
+    <script src="assets/vendors/isotope/isotope.js"></script>
+    <script src="assets/vendors/countdown/countdown.min.js"></script>
+    <script src="assets/vendors/jquery-circleType/jquery.circleType.js"></script>
+    <script src="assets/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+    <!-- template js -->
+    <script src="assets/js/stackly.js"></script>
+
+
+<script>
+// LOGIN VALIDATION
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let email = document.getElementById("loginEmail").value.trim();
+    let password = document.getElementById("loginPassword").value.trim();
+    let role = document.getElementById("loginRole").value;
+   
+    let emailError = document.getElementById("loginEmailError");
+    let passError = document.getElementById("loginPasswordError");
+    let roleError = document.getElementById("roleError");
+
+    let isValid = true;
+
+    emailError.textContent = "";
+    passError.textContent = "";
+    roleError.textContent = "";
+
+    // EMAIL VALIDATION
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        emailError.textContent = "Enter valid email";
+        isValid = false;
+    }
+
+       let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    if (!password.match(passwordPattern)) {
+        passError.textContent = "Strong password required";
+        isValid = false;
+    }
+
+
+    // ROLE VALIDATION
+    if (role === "") {
+        roleError.textContent = "Select role";
+        isValid = false;
+    }
+
+    // SUCCESS → ROLE BASED REDIRECT
+    if (isValid) {
+         localStorage.setItem("userEmail", email);
+        if (role === "admin") {
+            window.location.href = "dashboard/admin-dashboard.html";
+        } else if (role === "doctor") {
+            window.location.href = "dashboard/doctor-dashboard.html";
+        } else {
+            window.location.href = "dashboard/patient-dashboard.html";
+        }
+    }
+
+});
+
+
+// POPUP FUNCTIONS
+function openPopup() {
+    document.getElementById("forgotPopup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("forgotPopup").style.display = "none";
+}
+
+// FORGOT PASSWORD VALIDATION
+function sendResetLink() {
+    let email = document.getElementById("forgotEmail").value.trim();
+    let error = document.getElementById("forgotError");
+
+    error.textContent = "";
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!email.match(emailPattern)) {
+        error.textContent = "Enter valid email";
+        return;
+    }
+
+    // SUCCESS → REDIRECT
+    window.location.href = "404.html";
+}
+</script>
+
+<script>
+document.getElementById("forgotPopup").addEventListener("click", function(e) {
+    if (e.target === this) {
+        this.style.display = "none";
+    }
+});
+</script>
+
+
+</body>
+</html>
