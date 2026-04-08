@@ -3105,52 +3105,11 @@ placeholder="Search by doctor name, speciality, or condition...">
             </div>
         </div>
     </div>
-
-    <script>
-        // Initialize Morris Charts for Dashboard
-        $(document).ready(function() {
-            if ($('#morrisArea').length > 0) {
-                // Health metrics chart
-                Morris.Area({
-                    element: 'morrisArea',
-                    data: [
-                        { y: 'Jan', a: 100, b: 90 },
-                        { y: 'Feb', a: 75,  b: 65 },
-                        { y: 'Mar', a: 50,  b: 40 },
-                        { y: 'Apr', a: 75,  b: 65 },
-                        { y: 'May', a: 50,  b: 40 },
-                        { y: 'Jun', a: 75,  b: 65 },
-                        { y: 'Jul', a: 100, b: 90 }
-                    ],
-                    xkey: 'y',
-                    ykeys: ['a', 'b'],
-                    labels: ['Health Score', 'Target'],
-                    lineColors: ['#00d0f1', '#7bb13c'],
-                    lineWidth: 2,
-                    fillOpacity: 0.1,
-                    behaveLikeLine: true,
-                    gridLineColor: '#e0e0e0',
-                    hideHover: 'auto'
-                });
-            }
-
-            // Time slot selection
-            $('.time-slot').click(function() {
-                if (!$(this).hasClass('booked')) {
-                    $('.time-slot').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            });
-        });
-    </script>
-
    
        <script src="assets/js/jquery-3.7.1.min.js"></script>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="assets/plugins/raphael/raphael.min.js"></script>
-<script src="assets/plugins/morris/morris.min.js"></script>
-<script src="assets/js/chart.morris.js"></script>
 <script src="assets/js/script.js"></script>
 
 <script>
@@ -3251,8 +3210,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-
-    <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="d9acf14a0431db94371f44c0-|49" defer></script>
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {

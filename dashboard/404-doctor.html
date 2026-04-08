@@ -1,137 +1,262 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Error || Stackly || Medical</title>
-   <!-- fonts -->
-    <link rel="preconnect" href="../fonts.googleapis.com/index.html">
-    <link rel="preconnect" href="../fonts.gstatic.com/index.html" crossorigin>
-    <link href="../fonts.googleapis.com/css2da65.css?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/vendors/bootstrap-select/bootstrap-select.min.css" />
-
-    <!-- template styles -->
-    <link rel="stylesheet" href="../assets/css/style.css" />
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
     <style>
-        /* FULL SCREEN 404 FIX */
-.error-404 {
-  height: auto;
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --stackly-text-rgb: 112, 120, 130;
+  --stackly-text-dark: #456EA1;
+  --stackly-base: #33C1ED;
+  --stackly-base-rgb: 51, 193, 237;
+  --stackly-primary: #2C51A3;
+}
+
+/* ================= BODY FIX ================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--stackly-primary), var(--stackly-text-dark));
+
+  height: 100dvh;          /* ✅ fixed height */
+  overflow: hidden;        /* ✅ remove vertical scroll */
+
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0; /* remove extra spacing */
-}
-
-/* Remove scroll completely */
-html, body {
-  height: auto;
-  overflow: auto;
-}
-
-.error-404 .container {
-  height: 100%;
-  display: flex;
   align-items: center;
+
+  position: relative;
+}
+/* ================= PARTICLES ================= */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.error-404__content {
-  text-align: left;
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(var(--stackly-base-rgb), 0.3);
+  border-radius: 50%;
+  animation: float 15s linear infinite;
 }
 
-@media (max-width: 768px) {
-  .error-404 {
-    text-align: center;
-  }
+@keyframes float {
+  0% { transform: translateY(100%) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100%) rotate(720deg); opacity: 0; }
 }
 
-.row.gutter-y-40 {
-  align-items: center;
+/* ================= CONTAINER ================= */
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  margin: auto;
 }
 
-@media (max-width: 768px) {
+/* ================= 404 TEXT ================= */
+.error-code {
+  font-size: clamp(100px, 18vw, 180px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--stackly-base);
+  text-shadow: 0 0 20px rgba(var(--stackly-base-rgb), 0.5);
+  animation: pulse 2s ease-in-out infinite;
+  line-height: 1;
+  margin-bottom: 1rem;
+  position: relative;
+}
 
-  /* ALLOW SCROLL */
-  .error-404 {
-    height: auto;
-    padding: 40px 15px;
-    text-align: center;
+.error-code::before {
+  content: '404';
+  position: absolute;
+  inset: 0;
+  color: var(--stackly-base);
+  opacity: 0.1;
+  transform: translate(6px, 6px);
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ================= TEXT ================= */
+.error-title {
+  font-size: clamp(22px, 5vw, 32px);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.error-description {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ================= BUTTON ================= */
+.home-btn {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: auto;
+  padding: 14px;
+  background: var(--stackly-base);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: #fff;
+  color: var(--stackly-primary);
+}
+
+/* ================= SHAPES ================= */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--stackly-base-rgb), 0.2);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+/* 🔥 REDUCED SIZE (FIX OVERFLOW) */
+.circle-1 {
+  width: 180px;
+  height: 180px;
+  top: -60px;
+  right: -40px;
+}
+
+.circle-2 {
+  width: 140px;
+  height: 140px;
+  bottom: -60px;
+  left: -40px;
+}
+
+.circle-3 {
+  display: none; /* REMOVE OVERFLOW */
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ================= SHAPE ================= */
+.geometric-shape {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--stackly-base);
+  top: 10%;
+  right: 10%;
+  animation: floatShape 6s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatShape {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.container {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+
+  body {
+    padding: 0;
   }
 
-  /* STACK CONTENT */
-  .error-404 .row {
-    flex-direction: column;
+  .container {
+    width: 100%;
+    padding: 10px;
   }
 
-  /* IMAGE FIX */
-  .error-404__image img {
-    max-width: 250px;
-    margin: 0 auto 20px;
+  .error-code {
+    font-size: 70px;
+    -webkit-text-stroke: 2px var(--stackly-base);
   }
 
-  /* TEXT CENTER */
-  .error-404__content {
-    text-align: center;
+  .error-title {
+    font-size: 20px;
   }
 
-  /* TITLE SIZE */
-  .error-404__title {
-    font-size: 60px;
-  }
-
-  .error-404__tagline {
-    font-size: 22px;
-  }
-
-  .error-404__text {
+  .error-description {
     font-size: 14px;
-    padding: 0 10px;
   }
 
-
-  /* BUTTON */
-  .error-404 .stackly-btn {
-    margin-top: 15px;
-    display: inline-block;
+  .home-btn {
+    width: 100%;
   }
-
 }
-
-
     </style>
-
-    
-    </head>
-
-
+</head>
 <body>
-    
-        
-    
-        <section class="error-404">
-            <div class="container">
-                <div class="row gutter-y-40 align-items-center">
-                    <div class="col-xl-7 col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                        <div class="error-404__image">
-                            <div class="error-404__image__box">
-                                <img src="../assets/images/shapes/error-404-shape-1-1.webp" alt="shape" class="error-404__image__shape-1">
-                                <img src="../assets/images/shapes/error-404-shape-1-2.webp" alt="shape" class="error-404__image__shape-2">
-                            </div><!-- /.error-404__image__box -->
-                        </div><!-- /.error-404__image -->
-                    </div><!-- /.col-xl-7 col-lg-6 -->
-                    <div class="col-xl-5 col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                        <div class="error-404__content">
-                            <h4 class="error-404__title">404</h4><!-- /.error-404__title -->
-                            <h4 class="error-404__tagline">Page Not Found</h4><!-- /.error-404__tagline -->
-                            <p class="error-404__text">Sorry, the page you are looking for might have been removed, had its name changed, 
-    or is temporarily unavailable. Please check the URL or return to the homepage.</p><!-- /.error-404__text -->
-                            <a href="doctor-dashboard.html" class="stackly-btn stackly-btn--normal"><span>back to Dashboard</span></a><!-- /.stackly-btn -->
-                        </div><!-- /.error-404__content -->
-                    </div><!-- /.col-xl-5 col-lg-6 -->
-                </div><!-- /.row gutter-y-40 -->
-            </div><!-- /.container -->
-        </section><!-- /.error-404 section-space -->  
+    <!-- Animated particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Decorative circles -->
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <!-- Floating geometric shape -->
+    <div class="geometric-shape"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-description">
+            Oops! The page you're looking for seems to have vanished into the digital void. 
+            Let's get you back on track.
+        </p>
+        <a href="doctor-dashboard.html" class="home-btn">Back to Home</a>
+    </div>
 </body>
 </html>
